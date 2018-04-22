@@ -5,7 +5,7 @@ var cors = require('cors');
 var ObjectID = mongodb.ObjectID;
 
 var THERAPISTS_COLLECTION = "therapists";
-var ANSWERS_COLLECTION = "therapists";
+var ANSWERS_COLLECTION = "answers";
 
 var app = express();
 app.use(bodyParser.json());
