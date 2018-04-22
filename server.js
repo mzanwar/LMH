@@ -31,7 +31,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:2701
 
 // CONTACTS API ROUTES BELOW
 
-/ Generic error handler used by all endpoints.
+// Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
   console.log("ERROR: " + reason);
   res.status(code || 500).json({"error": message});
@@ -50,7 +50,6 @@ app.get("/api/contacts", function(req, res) {
       res.status(200).json(docs);
     }
   });
-});
 });
 
 app.post("/api/contacts", function(req, res) {
