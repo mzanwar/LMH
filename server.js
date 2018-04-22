@@ -3,7 +3,7 @@ var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
 
-var CONTACTS_COLLECTION = "contacts";
+var THERAPISTS_COLLECTION = "therapists";
 
 var app = express();
 app.use(bodyParser.json());
@@ -36,30 +36,35 @@ function handleError(res, reason, message, code) {
   console.log("ERROR: " + reason);
   res.status(code || 500).json({"error": message});
 }
-
-/*  "/api/contacts"
- *    GET: finds all contacts
- *    POST: creates a new contact
- */
-
-app.get("/api/contacts", function(req, res) {
-  db.collection(CONTACTS_COLLECTION).find({}).toArray(function(err, docs) {
+app.get("/", function(req, res) {
+  db.collection(THERAPISTS_COLLECTION).find({}).toArray(function(err, docs) {
     if (err) {
-      handleError(res, err.message, "Failed to get contacts.");
+      handleError(res, err.message, "Failed to get therapists.");
     } else {
       res.status(200).json(docs);
     }
   });
 });
 
-app.post("/api/contacts", function(req, res) {
+app.get("/api/therapists", function(req, res) {
+  db.collection(THERAPISTS_COLLECTION).find({}).toArray(function(err, docs) {
+    if (err) {
+      handleError(res, err.message, "Failed to get therapists.");
+    } else {
+      res.status(200).json(docs);
+    }
+  });
+});
+
+app.post("/api/therapists", function(req, res) {
   var newContact = req.body;
+  newContact.createDate = new Date();
 
   if (!req.body.name) {
     handleError(res, "Invalid user input", "Must provide a name.", 400);
   }
 
-  db.collection(CONTACTS_COLLECTION).insertOne(newContact, function(err, doc) {
+  db.collection(THERAPISTS_COLLECTION).insertOne(newContact, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to create new contact.");
     } else {
@@ -68,17 +73,42 @@ app.post("/api/contacts", function(req, res) {
   });
 });
 
-/*  "/api/contacts/:id"
+/*  "/api/therapists/:id"
  *    GET: find contact by id
  *    PUT: update contact by id
  *    DELETE: deletes contact by id
  */
 
-app.get("/api/contacts/:id", function(req, res) {
+app.get("/api/therapists/:id", function(req, res) {
+  db.collection(THERAPISTS_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to get therapist");
+    } else {
+      res.status(200).json(doc);
+    }
+  });
 });
 
-app.put("/api/contacts/:id", function(req, res) {
+app.put("/api/therapists/:id", function(req, res) {
+  var updateDoc = req.body;
+  delete updateDoc._id;
+
+  db.collection(THERAPISTS_COLLECTION).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to update therapist");
+    } else {
+      updateDoc._id = req.params.id;
+      res.status(200).json(updateDoc);
+    }
+  });
 });
 
-app.delete("/api/contacts/:id", function(req, res) {
+app.delete("/api/therapists/:id", function(req, res) {
+  db.collection(THERAPISTS_COLLECTION).deleteOne({_id: new ObjectID(req.params.id)}, function(err, result) {
+    if (err) {
+      handleError(res, err.message, "Failed to delete therapist");
+    } else {
+      res.status(200).json(req.params.id);
+    }
+  });
 });
