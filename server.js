@@ -5,6 +5,7 @@ var cors = require('cors');
 var ObjectID = mongodb.ObjectID;
 
 var THERAPISTS_COLLECTION = "therapists";
+var ANSWERS_COLLECTION = "therapists";
 
 var app = express();
 app.use(bodyParser.json());
@@ -69,6 +70,30 @@ app.post("/api/therapists", function(req, res) {
   db.collection(THERAPISTS_COLLECTION).insertOne(newContact, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to create new contact.");
+    } else {
+      res.status(201).json(doc.ops[0]);
+    }
+  });
+});
+
+// QUESTION ANSWERS
+app.get("/api/answers", function(req, res) {
+  db.collection(ANSWERS_COLLECTION).find({}).toArray(function(err, docs) {
+    if (err) {
+      handleError(res, err.message, "Failed to get answers.");
+    } else {
+      res.status(200).json(docs);
+    }
+  });
+});
+
+app.post("/api/answers", function(req, res) {
+  var newContact = req.body;
+  newContact.createDate = new Date();
+
+  db.collection(ANSWERS_COLLECTION).insertOne(newContact, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to submit answer.");
     } else {
       res.status(201).json(doc.ops[0]);
     }
