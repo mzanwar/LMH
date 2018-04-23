@@ -637,7 +637,7 @@
             </div>
             <input type="hidden" id="mylocation" name="mylocation" value="0" />
             <div class="col-12">
-                <button type="submit" class="btn btn-lg" style="background-color: #66a5d7; border: solid thin white;">MATCH NOW</button>
+                <button type="button" onclick="onSubmitClick()" class="btn btn-lg" style="background-color: #66a5d7; border: solid thin white;">MATCH NOW</button>
             </div>
         </div>
 	</div>
@@ -696,36 +696,38 @@
 
 <script>
 
-    $('#questions-form').on('submit', function(event){
+  function onSubmitClick(){
+    var elements = document.getElementById("questions-form").elements;
+    var obj ={};
+    for(var i = 0 ; i < elements.length ; i++){
+      var item = elements.item(i);
+      obj[item.name] = item.value;
+    }
 
-        var elements = document.getElementById("questions-form").elements;
-        var obj ={};
-        for(var i = 0 ; i < elements.length ; i++){
-            var item = elements.item(i);
-            obj[item.name] = item.value;
-        }
+    obj["location"] = window.location.search.substr(1).split("=")[1];
+    document.getElementById("mylocation").value = obj["location"];
 
-        obj["location"] = window.location.search.substr(1).split("=")[1];
-        document.getElementById("mylocation").value = obj["location"];
+    var body = JSON.stringify(obj);
 
-        var body = JSON.stringify(obj);
+    console.log(obj);
+    $.ajax({
+      type: 'POST',
+      url: 'https://linkmentalhealthmongo.herokuapp.com/api/answers',
+      dataType: 'json',
+      data: body,
+      contentType : 'application/json',
+      success: function(data) {
+        // window.location.replace("http://linkmentalhealthmongo.herokuapp.com");
+        console.log("Posted: " + data);
+        $('#questions-form').submit();
+      }
 
-        console.log(obj);
-        $.ajax({
-            type: 'POST',
-            url: 'https://linkmentalhealthmongo.herokuapp.com/api/answers',
-            dataType: 'json',
-            data: body,
-            contentType : 'application/json',
-            success: function(data) {
-                // window.location.replace("http://linkmentalhealthmongo.herokuapp.com");
-              console.log("Posted: " + data);
-            }
-
-        });
-
-        // return false;
     });
+  }
+
+    // $('#questions-form').on('submit', function(event){
+    //     return false;
+    // });
 </script>
 
     <script>
