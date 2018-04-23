@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>LinkMentalHealth</title>
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/results.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- Vue.js production version, optimized for size and speed -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light grey lighten-5">
+        <a class="navbar-brand" href="index.html"><img src="img/logo.png" height="45px;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarText">
+            <span class="navbar-text">
+                <button class="btn btn-sm btn-outline-elegant" onclick="window.location.href='index.html'">Back Home</button>
+                <button class="btn btn-sm btn-outline-elegant">Login</button>
+                <button class="btn btn-sm btn-outline-elegant">Register</button>
+                <button class="btn btn-sm btn-elegant">FOR THERAPISTS</button>
+            </span>
+        </div>
+    </nav>
+    <main class="container">
+        <!-- search results -->
+        <div class="row">
+            <h3 class="pt-4" style="font-size:14pt;">The following 4 therapists are recommended for you:</h3>
+        </div>
+        <div class="row">
+            <form method="post" action="">
+                <label>Filter by Speciality</label>
+                <select>
+                    <option>All</option>
+                    <option>Category 1</option>
+                    <option>Category 2</option>
+                </select>
+            </form>
+        </div>
+        <div class="row table-responsive mt-4">
+            <table class="table table-striped mt-4">
+                <tbody id="therapist-table-tr">
+                    <!--<tr>-->
+                        <!--<td style="padding:2rem;">-->
+                            <!--<img class="profile-img" src="images/Therapist1.png" alt="Therapist Profile Image"/>-->
+                        <!--</td>-->
+                        <!--<td style="padding:2rem; text-transform: capitalize;">-->
+                            <!--<h5>Dr. Laura Cuttini</h5>-->
+                            <!--<h6>PhD, Clinical Psychologist</h6>-->
+                            <!--<h6>Specializes in treatment of anxiety and depression using Cognitive Behaviour Therapy</h6>-->
+                            <!--<h6>Available in 2 days</h6>-->
+                            <!--<h6>10 people recommend this therapist</h6>-->
+                            <!--<hr/>-->
+                            <!--<i class="fas fa-lg fa-car"></i> 5km, 7 minutes-->
+                            <!--<hr/>-->
+                            <!--<i class="fas fa-lg fa-dollar-sign"></i> You qualify for funding-->
+                            <!--<hr/>-->
+                            <!--<a href="details.html" class="btn btn-info">Learn More and Book</a>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td style="padding:2rem;">-->
+                            <!--<img class="profile-img" src="images/Therapist2.png" alt="Therapist Profile Image"/>-->
+                        <!--</td>-->
+                        <!--<td style="padding:2rem; text-transform: capitalize;">-->
+                            <!--<h5>Dr. Nelson Byrne</h5>-->
+                            <!--<h6>PhD, Clinical and Health Psychologist</h6>-->
+                            <!--<h6>Specializes in treatment of anxiety and depression using Cognitive Behaviour Therapy</h6>-->
+                            <!--<h6>Available in 5 days</h6>-->
+                            <!--<h6>5 people recommend this therapist</h6>-->
+                            <!--<hr/>-->
+                            <!--<i class="fas fa-lg fa-car"></i> 10km, 15 minutes-->
+                            <!--<hr/>-->
+                            <!--<i class="fas fa-lg fa-dollar-sign"></i> You qualify for funding-->
+                            <!--<hr/>-->
+                            <!--<form action="details" method="post">-->
+                                <!--<button type="submit">Learn More and Inquire</button>-->
+                            <!--</form>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td style="padding:2rem;">-->
+                            <!--<img class="profile-img" src="images/Therapist3.png" alt="Therapist Profile Image"/>-->
+                        <!--</td>-->
+                        <!--<td style="padding:2rem; text-transform: capitalize;">-->
+                            <!--<h5> Lorena Patrucco</h5>-->
+                            <!--<h6>MA, Registered Psychotherapist</h6>-->
+                            <!--<h6>Specializes in treatment of anxiety and depression using Cognitive Behaviour Therapy</h6>-->
+                            <!--<h6>Available in 2 days</h6>-->
+                            <!--<h6>10 people recommend this therapist</h6>-->
+                            <!--<hr/>-->
+                            <!--<i class="fas fa-lg fa-car"></i> 5km, 7 minutes-->
+                            <!--<hr/>-->
+                            <!--<i class="fas fa-lg fa-dollar-sign"></i> You qualify for funding-->
+                            <!--<hr/>-->
+                            <!--<form action="details" method="post">-->
+                                <!--<button type="submit">Learn More and Inquire</button>-->
+                            <!--</form>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td style="padding:2rem;">-->
+                            <!--<img class="profile-img" src="images/Therapist4.png" alt="Therapist Profile Image"/>-->
+                        <!--</td>-->
+                        <!--<td style="padding:2rem; text-transform: capitalize;">-->
+                            <!--<h5>Eileen M. Corbett</h5>-->
+                            <!--<h6>MA, Registered Psychotherapist</h6>-->
+                            <!--<h6>Specializes in treatment of anxiety and depression using Cognitive Behaviour Therapy</h6>-->
+                            <!--<h6>Available in 2 days</h6>-->
+                            <!--<h6>10 people recommend this therapist</h6>-->
+                            <!--<hr/>-->
+                            <!--<i class="fas fa-lg fa-car"></i> 5km, 7 minutes-->
+                            <!--<hr/>-->
+                            <!--<form action="details" method="post">-->
+                                <!--<button type="submit">Learn More and Inquire</button>-->
+                            <!--</form>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <!--Footer-->
+    <footer class="page-footer row font-small pt-4" style="color: #9da3b3; ">
+
+        <!--Footer Links-->
+        <div class="col-12 text-center text-md-left" style="background-color: white;">
+            <div class="row justify-content-center" href="#">
+                <div class="col text-center pb-4">
+                <h1 class="h1 font-weight-bold text-center mb-5 pt-4" style="color: black">Our Partners</h1>    
+                <img src="images/partners.svg" alt="communitech partnership with linkmentalhealth">
+                <h4>We Are Proud to be Part of Communitech’s Strategic Growth Program</h4>
+                </div>
+            </div>
+
+            <div class="row footer">
+
+                <!--First column-->
+                <div class="about col-md-6" style="padding-left: 5rem;">
+                    <h5 class="text-uppercase">ABOUT</h5>
+                    <p><strong>LinkMe</strong>ntalHeath helps you find the best therapist to help in what you are suffering from within your budget and location, with the use of a researched questionnaire that is comprimised of 16 questions. Once you find a therapist that matches your needs, you can book them within a 3 day period.</p>
+                </div>
+                <!--/.First column-->
+
+                <!--Second column-->
+                <div class="col-md-3">
+                    <!--<h5 class="text-uppercase">NEED MORE HELP?</h5>-->
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">CONTACT US</a>
+                        </li>
+                        <li>
+                            <a href="#!">CAREERS</a>
+                        </li>
+                        <li>
+                            <a href="#!">BECOME A PARTNER</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.Second column-->
+
+                <!--Third column-->
+                <div class="col-md-3">
+                    <!--<h5 class="text-uppercase">NEED MORE HELP?</h5>-->
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">TERMS FOR CLIENTS</a>
+                        </li>
+                        <li>
+                            <a href="#!">TERMS FOR THERAPISTS</a>
+                        </li>
+                        <li>
+                            <a href="#!">PRIVACY</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.Third column-->
+            </div>
+        </div>
+        <!--/.Footer Links-->
+        <div class="col-12 text-center pt-4 pb-4">
+            <a class="btn btn-sm btn-outline-elegant"><i class="fa fa-4x fa-instagram"></i></a>
+            <a class="btn btn-sm btn-outline-elegant"><i class="fa fa-twitter"></i></a>
+            <a class="btn btn-sm btn-outline-elegant"><i class="fa fa-linkedin"></i></a>
+        </div>
+        <!--Copyright-->
+        <div class="col-12 footer-copyright py-3 text-center">
+            © {{ new Date().getFullYear() }} Copyright:
+            <a href="index.html"> LinkMentalHealth </a>
+        </div>
+        <!--/.Copyright-->
+
+    </footer>
+    <!--/.Footer-->
+    
+
+    <!-- SCRIPTS -->
+    
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA99KkLe7GZtYGJZcX-RQHJA_G-Q9jwU9Q&libraries=places&callback=initialize"></script>
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    
+    <!-- To Generate Current Year in Footer -->
+    <script>
+    new Vue({
+      el: '.footer-copyright',
+    });
+    </script>
+    <script src="https://apis.google.com/js/api.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        gapi.load('auth2', function() {
+            // Library loaded.
+        });
+    </script>
+    <script>
+
+        var params = window.location.search.substr(1);
+        var my_location = decodeURIComponent(params.substr(params.indexOf("mylocation") + 1).split("=")[1]);
+        $.get("https://linkmentalhealthmongo.herokuapp.com/api/therapists", function(data, status){
+            var tr_items = [];
+            therapists = data;
+            therapists.forEach(function(therapist) {
+                therapist_location = therapist["location"];
+                var distance_api = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins='+ my_location +'&destinations='+ therapist_location +'&key=AIzaSyAn7FK01jtGqmTrTrqElFFP4JWyzSnCUkc';
+                getDistance(my_location, therapist_location);
+                function getDistance(A, B)
+                {
+                    console.log(B);
+                    //Find the distance
+                    var distanceService = new google.maps.DistanceMatrixService();
+                    distanceService.getDistanceMatrix({
+                            origins: [A],
+                            destinations: [B],
+                            travelMode: google.maps.TravelMode.DRIVING,
+                            unitSystem: google.maps.UnitSystem.METRIC,
+                            durationInTraffic: true,
+                            avoidHighways: false,
+                            avoidTolls: false
+                        },
+                        function (response, status) {
+                            if (status !== google.maps.DistanceMatrixStatus.OK) {
+                                console.log('Error:', status);
+                            } else {
+                                console.log(response);
+                                if (response.rows[0].elements[0].distance && response.rows[0].elements[0].duration) {
+                                    addTherapist(response.rows[0].elements[0].distance.text, response.rows[0].elements[0].duration.text);
+                                    // alert(response.rows[0].elements[0].distance.text);
+                                    // alert(response.rows[0].elements[0].duration.text);
+                                }
+                            }
+                        });
+                }
+                function myJsonMethod(response){
+                    console.log (response);
+                }
+                function addTherapist(distance, duration){
+                    $('#therapist-table-tr').append(getTherapistHTML(therapist["_id"], therapist["name"], therapist["title"],therapist["short_summary"], therapist["photo_link"], therapist["treatment_type"], therapist["recommendations"], distance, duration, therapist["average_wait_time"]));
+
+                }
+            });
+            // $('#therapist-table-tr').append(tr_items.join(''))
+        });
+
+
+        // AIzaSyAn7FK01jtGqmTrTrqElFFP4JWyzSnCUkc - datamatrix
+
+
+
+        // determine distance in KM
+        // https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=Washington,DC&destinations=New+York+City,NY&key=AIzaSyAn7FK01jtGqmTrTrqElFFP4JWyzSnCUkc
+
+        function getTherapistHTML(id, name, title, short_summary, photo_link, treatment_type, recommendations, distance, duration, wait_time){
+            return '<tr>\n' +
+                '                        <td class="profile-td" style="padding:2rem;">\n' +
+                '                            <img class="profile-img" src="'+ photo_link +'" alt="Therapist Profile Image"/>\n' +
+                '                        </td>\n' +
+                '                        <td style="padding:2rem; text-transform: capitalize;">\n' +
+                '                            <h5>' + name + '</h5>\n' +
+                '                            <h6>'+ title +'</h6>\n' +
+                '                            <h6>'+ treatment_type +'</h6>\n' +
+                '                            <h6>Available in '+ wait_time +' days</h6>\n' +
+                '                            <h6>'+ recommendations +' people recommend this therapist</h6>\n' +
+                '                            <hr/>\n' +
+                '                            <i class="fas fa-lg fa-car"></i> ' + distance + ', '+ duration +'\n' +
+                '                            <hr/>\n' +
+                '                            <form action="details.html" method="GET">\n' +
+                '                                <input id="therapist_id" type="hidden" name="therapist_id" value="'+ id +'">' +
+                '                                <button type="submit">Learn More and Inquire</button>\n' +
+                '                            </form>\n' +
+                '                        </td>\n' +
+                '                    </tr>'
+        };
+
+
+
+    </script>
+</body>
+</html>

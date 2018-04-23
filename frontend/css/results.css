@@ -1,0 +1,20 @@
+.profile-td{
+    width:200px;
+}
+.profile-img{
+    border-radius: 0%;
+    /*width: 150px;*/
+    /*height: 150px;*/
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.icon-img{
+    width: 35px;
+    height: 35px;
+}
+
+i{
+    width: 2rem;
+}

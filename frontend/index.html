@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>LinkMentalHealth</title>
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- Google Maps Address Autocomplete-->
+    <script defer>
+            function initialize() {
+              var input = document.getElementById('locationTextField');
+              var autocomplete = new google.maps.places.Autocomplete(input);
+              // Set initial restrict to the canada only.
+              autocomplete.setComponentRestrictions(
+                    {'country': ['ca']}
+              );
+            }
+            google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    <!-- Vue.js production version, optimized for size and speed -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light grey lighten-5">
+    <a class="navbar-brand" href="#"><img src="img/logo.png" height="45px;" alt="linkmentalhealth logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul id="menu" class="navbar-nav mr-auto pl-4 ml-4">
+            <li class="nav-item pl-3">
+                <a class="nav-link" href="#howitworks">How it Works</a>
+            </li>
+            <li class="nav-item pl-3">
+                <a class="nav-link" href="#howitstarted">How it Started</a>
+            </li>
+            <li class="nav-item pl-3">
+                <a class="nav-link" href="#ourresources">Our Resources</a>
+            </li>
+            <li class="nav-item pl-3">
+                <a class="nav-link" href="#ourtherapists">Our Therapists</a>
+            </li>
+        </ul>
+        <span class="navbar-text">
+            <button class="btn btn-sm btn-outline-elegant">Login</button>
+            <button class="btn btn-sm btn-outline-elegant">Register</button>
+            <button class="btn btn-sm btn-elegant">FOR THERAPISTS</button>
+        </span>
+    </div>
+</nav>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="homepage-hero-module">
+    <div class="video-container">
+        <div class="title-container">
+            <div class="headline">
+                    <h3 id="h3-title" class="w3-animate-opacity">we are here to help</h3>
+                	<h1 id="h1-title" class="w3-animate-opacity">Link You to Your Therapist</h1>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form id="location-form" method="GET" action="questionnaire.html" class="needs-validation" novalidate>
+                      <div class="address-input-unit col">
+                        <i class="map-icon fa fa-map-marker"></i>
+                        <input type="text" class="form-control input-lg" id="locationTextField" placeholder="Address or Postal Code" required>
+                          <input type="hidden" id="mylocation" name="mylocation" value="0" />
+                        <div class="invalid-feedback alert alert-danger" role="alert">
+                            Please provide a valid address.
+                        </div>
+                        <button type="submit" onclick="saveLocation()" class="btn" id="start-qs-btn">Get Started</button>
+                      </div>
+                    </form>
+                    <script>
+                        function saveLocation(){
+                            var location = document.getElementById("location-form").elements[0].value;
+                            document.getElementById("mylocation").value = location;
+                        }
+
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="filter"></div>
+        <img src="img/background.png" alt="linkmentalhealth still background for mobiles" style="z-index: -1; height: 100%;"/>
+        <video id="video" autoplay class="fillWidth">
+            <source src="AdobeStock_193582622_Video_HD_Preview.mov" type="video/mp4"/>Your browser does not support the video tag. I suggest you upgrade your browser.
+        </video>
+    </div>
+</div>
+<div class="container-fluid pt-4" id="content">
+    <div id="howitworks" class="row pt-2">
+        <div class="col-12 pl-4 pb-2">
+            <h1 class="h1 font-weight-bold text-center mb-5 pt-4">How it Works</h1>
+            <hr style="border-color:black; color:black; background-color: black;"/>
+       </div>
+        
+        <div class="col-md-4 pt-4 mt-4 steps">
+            <!--Card Narrower-->
+            <div class="card card-cascade narrower" style="background: url(img/blackbackground.svg);">
+
+                <!--Card image-->
+                <div class="view overlay rounded z-depth-2 text-center p-2 customyellow" style="font-size:100px;">
+                    <h1 class="text-center stepsh1">Step 1</h1>
+                    <img class="stepsicon" src="img/man.png" alt="icon for step 1 take survey of linkmentalhealth process">
+                </div>
+                <!--/Card image-->
+
+                <!--Card content-->
+                <div class="card-body text-center" style="height: 175px;">
+                    <!--Title-->
+                    <h4 class="card-title pt-4 pb-4" style="color: whitesmoke;font-family: 'Julius Sans One', sans-serif; "><strong>TAKE SURVEY</strong></h4>
+
+                    <p class="card-text">This researched questionnaire will determine the best therapist to help in what you are suffering from. </p>
+
+                </div>
+                <!--/.Card content-->
+
+            </div>
+            <!--/.Card Narrower-->
+        </div>
+        <div class="col-md-4 pt-4 mt-4 steps">
+            <!--Card Narrower-->
+            <div class="card card-cascade narrower" style="background: url(img/blackbackground2.svg); ">
+
+                <!--Card image-->
+                <div class="view overlay rounded z-depth-2 text-center p-2 customyellow" style="font-size:100px;">
+                    <h1 class="text-center stepsh1">Step 2</h1>
+                     <img class="stepsicon" src="img/man-2.png" alt="icon for step 2 get matched of linkmentalhealth process"/>
+                </div>
+                <!--/Card image-->
+
+                <!--Card content-->
+                <div class="card-body text-center" style="height: 175px;">
+                    <!--Title-->
+                    <h4 class="card-title pt-4 pb-4" style="color: whitesmoke;font-family: 'Julius Sans One', sans-serif;"><strong>GET MATCHED</strong></h4>
+                    <p class="card-text" >Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem aperiam. </p>
+
+                </div>
+                <!--/.Card content-->
+
+            </div>
+            <!--/.Card Narrower-->
+        </div>
+        <div class="col-md-4 pt-4 mt-4 steps">
+            <!--Card Narrower-->
+            <div class="card card-cascade narrower" style="background: url(img/blackbackground.svg);">
+
+                <!--Card image-->
+                <div class="view overlay rounded z-depth-2 text-center p-2 customyellow" style="font-size:100px;">
+                    <h1 class="text-center stepsh1">Step 3</h1>
+                     <img class="stepsicon" src="img/man-3.png" alt="icon for step 3 book appointment of linkmentalhealth process"/>
+                </div>
+                <!--/Card image-->
+
+                <!--Card content-->
+                <div class="card-body text-center" style="height: 175px;">
+                    <!--Title-->
+                    <h4 class="card-title pt-4 pb-4" style="color: whitesmoke;font-family: 'Julius Sans One', sans-serif;"><strong>MAKE BOOKING</strong></h4>
+                    <p class="card-text" >Schedule an appointment with your chosen mental health professional. </p>
+                </div>
+                <!--/.Card content-->
+            </div>
+            <!--/.Card Narrower-->
+        </div>
+    </div>
+
+    <div id="howitstarted" class="row mt-4 pt-4">
+        <div class="col-12 pb-4" style="padding-left: 5rem; padding-right:5rem;">
+            <h1 class="h1 font-weight-bold text-center mb-5 pt-4" style="color:white;">How it Started</h1>
+            <hr/>
+            <p class="how-started-para pl-4 pr-4 pb-4" style="font-size: 24px; color:whitesmoke">
+                It all began when someone confided in two of his friends and told them he was suffering from severe anxiety and depression. Naturally, his friends were concerned, and they asked carefully if he was willing to take the step to talk to someone professional. With a look of defeat, he told them he had spent weeks looking for a therapist within his budget with no avail. This look of defeat was what made his two friends work hand in hand to bring this concept to life.
+            </p>
+        </div>
+    </div>
+    
+    <div id="ourresources" class="row mt-4 pt-4" style="background-color: whitesmoke;">
+        <div class="col-12 pb-4" style="padding-left: 5rem; padding-right:5rem;">
+            <!--Section heading-->
+            <h1 class="h1 font-weight-bold text-center mb-5 pt-4">Our Resources</h1>
+            <hr style="border-color:black; color:black; background-color: black;"/>
+            <!--Section description-->
+            <p class="text-center mb-3 pb-3"></p>
+
+            <!-- Card deck -->
+            <div class="card-deck">
+
+              <!-- Card -->
+              <div class="card mb-4">
+
+                <!--Card image-->
+                <div class="view overlay">
+                  <img class="card-img-top" src="img/blog1.jpg" alt="Card image cap">
+                  <a href="#!">
+                    <div class="mask rgba-white-slight"></div>
+                  </a>
+                </div>
+
+                <!--Card content-->
+                <div class="card-body">
+                  <!--Title-->
+                  <h4 class="card-title">Blog title</h4>
+                  <!--Text-->
+                  <p class="card-text">First paragraph goes here.</p>
+                  <button type="button" class="btn btn-md customyellow">Read more</button>
+                </div>
+
+              </div>
+              <!-- Card -->
+
+              <!-- Card -->
+              <div class="card mb-4">
+                <!--Card image-->
+                <div class="view overlay">
+                  <img class="card-img-top" src="img/blog2.jpg" alt="Card image cap">
+                  <a href="#!">
+                    <div class="mask rgba-white-slight"></div>
+                  </a>
+                </div>
+                <!--Card content-->
+                <div class="card-body">
+
+                  <!--Title-->
+                  <h4 class="card-title">Blog title</h4>
+                  <!--Text-->
+                  <p class="card-text">First paragraph goes here.</p>
+                  <button type="button" class="btn btn-md customyellow">Read more</button>
+                </div>
+
+              </div>
+              <!-- Card -->
+
+              <!-- Card -->
+              <div class="card mb-4">
+
+                <!--Card image-->
+                <div class="view overlay">
+                  <img class="card-img-top" src="img/blog3.jpg" alt="Card image cap">
+                  <a href="#!">
+                    <div class="mask rgba-white-slight"></div>
+                  </a>
+                </div>
+
+                <!--Card content-->
+                <div class="card-body">
+
+                  <!--Title-->
+                  <h4 class="card-title">Blog title</h4>
+                  <!--Text-->
+                  <p class="card-text">First paragraph goes here.</p>
+                  <button type="button" class="btn btn-md customyellow">Read more</button>
+                </div>
+              </div>
+              <!-- Card -->
+            </div>
+            <!-- Card deck -->
+        </div>
+    </div>
+    
+    <div id="ourtherapists" class="row mt-4 pt-4">
+        <div class="col-12 pb-4" style="padding-left: 5rem; padding-right:5rem;">
+
+            <!--Section heading-->
+            <h1 class="h1 font-weight-bold text-center mb-5 pt-4" style="color:white;">Our Therapists</h1>
+            <hr/>
+            <!--Section description-->
+            <p class="text-center mb-5 p-3 how-started-para" style="font-size: 24px; color:whitesmoke">We choose the therapists we work with carefully, bringing you only the best professionals in the field.</p>
+
+            <!--Grid row-->
+            <div class="row justify-content-center ">
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-sm-12 testimonial">
+
+                    <!--Card Regular-->
+                    <div class="card card-cascade">
+
+                        <!--Card image-->
+                        <div class="view overlay">
+                            <img class="testimonialpic" src="img/profile1.jpg" class="img-fluid" alt="normal">
+                            <a>
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <!--/.Card image-->
+
+                        <!--Card content-->
+                        <div class="card-body text-center">
+                            <!--Title-->
+                            <h4 class="card-title"><strong>Mary Jones</strong></h4>
+
+                            <p class="card-text">Found my therapist on LinkMentalHealth. My life has changed ever since. Great Website! (Needs changing obviously .. Come up with something more creative!!)
+                            </p>
+
+                            <!--Facebook-->
+                            <button class="btn btn-small btn-elegant"><i class="fa fa-facebook"></i></button>
+                            <!--Twitter-->
+                            <button class="btn btn-small btn-elegant"><i class="fa fa-twitter"></i></button>
+                        </div>
+                        <!--/.Card content-->
+                    </div>
+                    <!--/.Card Regular-->
+                </div>
+                <!-- Grid column -->
+                
+                <!-- Grid column -->
+                <div class="col-md-4 col-sm-12 testimonial">
+
+                    <!--Card Regular-->
+                    <div class="card card-cascade">
+
+                        <!--Card image-->
+                        <div class="view overlay">
+                            <img class="testimonialpic" src="img/profile2.jpg" class="img-fluid" alt="normal">
+                            <a>
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <!--/.Card image-->
+
+                        <!--Card content-->
+                        <div class="card-body text-center">
+                            <!--Title-->
+                            <h4 class="card-title"><strong>John Smith</strong></h4>
+
+                            <p class="card-text">Found my therapist on LinkMentalHealth. My life has changed ever since. Great Website! (Needs changing obviously .. Come up with something more creative!!)
+                            </p>
+
+                            <!--Facebook-->
+                            <button class="btn btn-small btn-elegant"><i class="fa fa-facebook"></i></button>
+                            <!--Twitter-->
+                            <button class="btn btn-small btn-elegant"><i class="fa fa-twitter"></i></button>
+                        </div>
+                        <!--/.Card content-->
+
+                    </div>
+                    <!--/.Card Regular-->
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!--Grid row-->
+        </div>
+    </div>
+    <div class="">
+        <div class="row" style="background: url(img/therapistoffice.jpg) no-repeat center center; color: white; background-size: 100%">
+            <div class="col justify-md-center text-white rgba-black-strong" style="padding: 2rem;">
+                <div class="col-12 text-center">
+                    <h2>Are you a Therapist?</h2>
+                    <p>Grow your practice and join our community.</p>
+                    <button type="button" class="btn btn-md customyellow">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+                         
+    <!--Footer-->
+    <footer class="page-footer row font-small pt-4" style="color: #9da3b3; ">
+
+        <!--Footer Links-->
+        <div class="col-12 text-center text-md-left" style="background-color: white;">
+            <div class="row justify-content-center" href="#">
+                <div class="col text-center pb-4">
+                <h1 class="h1 font-weight-bold text-center mb-5 pt-4" style="color: black">Our Partners</h1>    
+                <img src="images/partners.svg" alt="communitech partnership with linkmentalhealth">
+                <h4>We Are Proud to be Part of Communitech’s Strategic Growth Program</h4>
+                </div>
+            </div>
+
+            <div class="row footer">
+
+                <!--First column-->
+                <div class="about col-md-6" style="padding-left: 5rem;">
+                    <h5 class="text-uppercase">ABOUT</h5>
+                    <p><strong>LinkMe</strong>ntalHeath helps you find the best therapist to help in what you are suffering from within your budget and location, with the use of a researched questionnaire that is comprimised of 16 questions. Once you find a therapist that matches your needs, you can book them within a 3 day period.</p>
+                </div>
+                <!--/.First column-->
+
+                <!--Second column-->
+                <div class="col-md-3">
+                    <!--<h5 class="text-uppercase">NEED MORE HELP?</h5>-->
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">CONTACT US</a>
+                        </li>
+                        <li>
+                            <a href="#!">CAREERS</a>
+                        </li>
+                        <li>
+                            <a href="#!">BECOME A PARTNER</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.Second column-->
+
+                <!--Third column-->
+                <div class="col-md-3">
+                    <!--<h5 class="text-uppercase">NEED MORE HELP?</h5>-->
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">TERMS FOR CLIENTS</a>
+                        </li>
+                        <li>
+                            <a href="#!">TERMS FOR THERAPISTS</a>
+                        </li>
+                        <li>
+                            <a href="#!">PRIVACY</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.Third column-->
+            </div>
+        </div>
+        <!--/.Footer Links-->
+        <div class="col-12 text-center pt-4 pb-4">
+            <a class="btn btn-sm btn-outline-elegant"><i class="fa fa-4x fa-instagram"></i></a>
+            <a class="btn btn-sm btn-outline-elegant"><i class="fa fa-twitter"></i></a>
+            <a class="btn btn-sm btn-outline-elegant"><i class="fa fa-linkedin"></i></a>
+        </div>
+        <!--Copyright-->
+        <div class="col-12 footer-copyright py-3 text-center">
+            © {{ new Date().getFullYear() }} Copyright:
+            <a href="index.html"> LinkMentalHealth </a>
+        </div>
+        <!--/.Copyright-->
+
+    </footer>
+    <!--/.Footer-->
+                      
+</div>
+<!-- /container -->
+
+
+    <!-- SCRIPTS -->
+    
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA99KkLe7GZtYGJZcX-RQHJA_G-Q9jwU9Q&libraries=places&callback=initialize"></script>
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    
+    <!-- To Generate Current Year in Footer -->
+    <script>
+    new Vue({
+      el: '.footer-copyright',
+    });
+    </script>
+    
+    <!-- Validation -->
+    <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+    </script>
+
+</body>
+
+</html>

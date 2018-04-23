@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="boostrap-css/bootstrap.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/results.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/css/ripples.min.css"/>
+
+    <link rel="stylesheet" href="css/bootstrap-material-datetimepicker.css" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>LinkMentalHealth Detailed Information</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom box-shadow p-3 px-md-4">
+        <a class="navbar-brand" href="index.html"><img src="images/Logo.png" alt="linked mental health logo" width="60px" height="60px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">I'm a Therapist</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#">Careers</a>
+                </li>
+                <li class="nav-item pl-3">
+                    <a class="btn btn-outline-info" href="#">LOGIN</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main class="container">
+        <!-- search results -->
+        <div class="row justify-content-center">
+            <h3 class="pt-4 pb-4" style="font-size:14pt;">You have $500 in Funding</h3>
+        </div>
+        <div id="therapist_info_div" class="row pt-4">
+            <!--<div class="col-md-4 col-sm-12" style="background-color: #eee;">-->
+                <!--<img class="profile-img" src="images/Therapist1.png" alt="Therapist Profile Image"/>-->
+                <!--<hr/>-->
+                <!--<h6>Word from Laura</h6>-->
+                <!--<p>I take an empathic, collaborative approach to helping clients achieve their goals. Whether it's feelings of anxiety, sadness, or just struggling with life's challenges, therapy can help. As a psychologist (supervised practice), I am able to help clients effectively manage mood and anxiety difficulties, including depression, chronic worry, panic disorder, and social anxiety. Trauma, obsessive-compulsive disorder (OCD), and insomnia are also common problems I can help clients overcome.</p>-->
+            <!--</div>-->
+            <!--<div class="col-md-4 col-sm-12">-->
+                <!--<h5>Dr. Laura Cuttini</h5>-->
+                <!--<h6>PhD, Clinical Psychologist</h6>-->
+                <!--<h6>Specializes in treatment of anxiety and depression using Cognitive Behaviour Therapy</h6>-->
+                <!--<hr/>-->
+                <!--<h6>Specializes in</h6>-->
+                <!--<p>Anxiety, Depression, Obsessive Compulsive Disorder</p>-->
+                <!--<hr/>-->
+                <!--<h6>Treatment Type</h6>-->
+                <!--<p>Cognitive Behavioural Therapy Acceptance Commitment Therapy Mindfulness</p>-->
+                <!--<hr/>-->
+                <!--<h6>Preference</h6>-->
+                <!--<p>Available Evenings</p>-->
+                <!--<hr/>-->
+                <!--<h6>Certifications</h6>-->
+                <!--<p>PhD Clinical Psychology, McGill University</p>            -->
+            <!--</div>-->
+            <div class="col-md-4 col-sm-12" style="background-color: #eee;">
+                <h6>BOOK APPOINTMENT</h6>
+                <form id="booking" action="" method="post">
+							<input type="hidden" value="Name of Therapist" name="therapist_name_id" id="therapist_name_id">
+							<div class="row">
+								<div class="col-md-6 ">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Name" name="fname" id="fname">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Last Name" name="lname" id="lname">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="form-group">
+										<input type="email" class="form-control" placeholder="Email Address" name="email" id="email">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Phone Number" name="phone" id="phone">
+									</div>
+								</div>
+							</div>
+                            <div class="row mb-4">
+                                <div class="col-lg-12">
+                                    <div class="form-control">
+                                        <div class="form-group">
+                                            <input type="text" id="date-format" class="form-control" placeholder="Pick Available Date and Time" name="date-format">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="form-group">
+										<textarea rows="5" id="booking_message" name="booking_message" class="form-control" style="height:80px;" placeholder="Additional message"></textarea>
+									</div>
+								</div>
+							</div>
+							<hr>
+							<div style="position:relative;"><input type="submit" class="btn_1 w-100 btn btn-outline-danger" value="Book Now" id="submit-booking"></div>
+
+                </form>
+            </div>
+        </div>
+
+
+    </main>
+    <footer class="row text-center m-4">
+        <div class="col">
+            <p>Copyright &copy; 2018 LinkMentalHealth</p>
+        </div>
+    </footer>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/ripples.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/material.min.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/FezVrasta/bootstrap-material-design/master/dist/js/material.min.js"></script>
+    <script type="text/javascript" src="http://momentjs.com/downloads/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-material-datetimepicker.js"></script>
+    	<script type="text/javascript">
+		$(document).ready(function()
+		{
+
+            $('#date-format').bootstrapMaterialDatePicker({
+                format : 'DD/MM/YYYY HH:00',
+                minDate : new Date(),
+                disabledDays: [7],
+            });
+
+			$.material.init()
+		});
+		</script>
+
+    <script>
+        var therapist_id = window.location.search.substr(1).split("=")[1];
+        // 1. Query using ID
+        $.get("https://linkmentalhealthmongo.herokuapp.com/api/therapists/" + therapist_id, function(data, status){
+
+            var therapist_details = '<div class="col-md-4 col-sm-12" style="background-color: #eee;">\n' +
+                '                <img class="profile-img" src="'+ data["photo_link"] +'" alt="Therapist Profile Image"/>\n' +
+                '                <hr/>\n' +
+                '                <h6>Word from '+ data["name"] +'</h6>\n' +
+                '                <p>'+ data["bio"] +'</p>\n' +
+                '            </div>\n' +
+                '            <div class="col-md-4 col-sm-12">\n' +
+                '                <h5>'+ data["name"] +'</h5>\n' +
+                '                <h6>'+ data["title"] +'</h6>\n' +
+                '                <h6>'+ data["short_summary"] +'</h6>\n' +
+                '                <hr/>\n' +
+                '                <h6>Specializes in</h6>\n' +
+                '                <p>'+ data["specialty"] +'</p>\n' +
+                '                <hr/>\n' +
+                '                <h6>Treatment Type</h6>\n' +
+                '                <p>'+ data["treatment_type"] +'</p>\n' +
+                '                <hr/>\n' +
+                '                <h6>Preference</h6>\n' +
+                '                <p>' + data["booking_preference"] + '</p>\n' +
+                '                <hr/>\n' +
+                '                <h6>Certifications</h6>\n' +
+                '                <p>'+ data["certifications"] +'</p>            \n' +
+                '            </div>';
+
+            $("#therapist_info_div").append(therapist_details);
+        });
+
+
+        // Take information and fill in
+
+    </script>
+</body>
+</html>

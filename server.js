@@ -10,6 +10,7 @@ var ANSWERS_COLLECTION = "answers";
 var app = express();
 app.use(bodyParser.json());
 app.use(cors());
+app.use(express.static('frontend'))
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
@@ -40,13 +41,7 @@ function handleError(res, reason, message, code) {
   res.status(code || 500).json({"error": message});
 }
 app.get("/", function(req, res) {
-  db.collection(THERAPISTS_COLLECTION).find({}).toArray(function(err, docs) {
-    if (err) {
-      handleError(res, err.message, "Failed to get therapists.");
-    } else {
-      res.status(200).json(docs);
-    }
-  });
+  res.sendfile('./frontend/' + 'index.html');
 });
 
 app.get("/api/therapists", function(req, res) {
